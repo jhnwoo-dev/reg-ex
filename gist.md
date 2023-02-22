@@ -30,7 +30,7 @@ As a simple breakdown of this regex code snippet:
 
 ## Regex Components
 
-Regex is considered a literal, therefore it must be wrapped in forwards slash characters (`/`)
+Regex is considered a literal, therefore it must be wrapped in forward slash characters (`/`)
 
 We will list out the components of a regex and will go deeper into the components in their respective sections. With that prefaced, the first component of a regex are the anchors, followed by the quantifiers, grouping constructs, bracket expressions, character classes, the OR operator, flags, and the character escapes.
 
@@ -80,11 +80,24 @@ If we wanted to include uppercase letters, we would adjust the search expression
 
 ### Character Classes
 
+Character classes in regex defines a set of characteres, of which can occur in an input string to fulfill a match. The bracket expressions discussed previously is considered a character class. A few other common character classes are listed below:
+
+-   `.` -- matches any character except the newline character
+-   `\d` -- matches any Arabix numeral digit. This is equivalent to the bracket expression `[0-9]`
+-   `\w` -- matches any alphanumeric character from the basic Latin alphabet, including the underscore. This is equivalent to the bracket expression `[A-Za-z0-9_]`
+-   `\s` -- matches a single whitespace character, including tabs and line breaks
+
 ### The OR Operator
 
 The OR Operator (`|`) in an expression can allow us to change our matching parameters. Referring to the example in grouping constructs of `(qwe):(asd)`, we can convert it using the OR Operator to `(q|w|e):(a|s|d)`, where both of the strings `qwe:asd` and `ewq:das` would match, as well as `q:a`, but `asd:qwe` would not.
 
 ### Flags
+
+As discussed earlier in this post, a regex must be wrapped in forward slash characters (`/`), however, there is one exception to this rule - that is with the component known as `flags`. Flags are placed at the very end of the regex, after the second forward slash, and they provide additional functionality or limits for the regex. There are 6 optional flags, separately or together and in any order, but there are three that are most common:
+
+-   `g` -- global search: the regex should be tested against all possible mathces in a string
+-   `i` -- case-insensitive search: case should be ignored while attempting a match in a string
+-   `m` -- multi-line search: a multi-line input string should be treated as multiple lines
 
 ### Character Escapes
 
